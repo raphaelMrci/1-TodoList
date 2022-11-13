@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title= title
+    body
+        form(action='/logout', method='post')
+            button(type='submit') Logout
+        form(action='/')
+            button(type='submit') Back
+        h1= task.title
+        p= task.description
+        form(action=task.id + "/delete" method="post")
+            button(type='submit') Delete

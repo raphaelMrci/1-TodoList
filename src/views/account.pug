@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Account
+    body
+        form(action='/logout', method='post')
+            button(type='submit') Logout
+        form(action='/')
+            button(type='submit') Home
+        h1 Account
+        form(action='/account/edit', method='post')
+            label(for='username') Username
+            input(type='text', name='username', value=user.username)
+            p #{user.email}
+            label(for='password') Password
+            input(type='password', name='password')
+            input(type='submit', value='Update')
+        if errorMessage
+            p= errorMessage
+        form(action='/account', method='post')
+            input(type='submit', value='Delete')

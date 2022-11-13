@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title Todo List
+    body
+        form(action='/logout', method='post')
+            button(type='submit') Logout
+        form(action='/account')
+            button(type='submit') Account
+        h1= username
+        ul
+        each todo in todos
+            li
+                p #{todo.title}
+                form(action='/t/' + todo.id)
+                    input(type='submit', value='Open')
+                form(action='/t/' + todo.id + '/edit')
+                    input(type='submit', value='Edit')
+                form(action='/t/' + todo.id + '/edit-duetime', method='post' onchange='this.submit()')
+                    select(name="dueTime" value=todo.dueTime)
+                        each time in ['not started', 'todo', 'in progress', 'done']
+                            if time == todo.due_time
+                                option(value=time selected)= time
+                            else
+                                option(value=time)= time
+        form(action='/new')
+            button(type='submit') Add

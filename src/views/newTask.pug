@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title New task
+    body
+        form(action='/logout', method='post')
+            button(type='submit') Logout
+        form(action='/')
+            button(type='submit') Back
+        form(action='/new', method='post')
+            label(for='title') Title
+            input(type='text', name='title')
+            label(for='description') Description
+            input(type='text', name='description')
+            button(type='submit') Create
